@@ -16,10 +16,10 @@ function ImageGrid() {
 
   return (
     <Grid>
-      {images.map((model, index) => (
+      {images.map((image, index) => (
         <Grid.Col span={4} key={index} style={{ position: 'relative', height: '200px' }}>
           <Image
-            src="/robot.png"
+            src={image}
             alt="Robot"
             layout="fill" 
             objectFit="cover" 

@@ -11,11 +11,10 @@ export default async function handler(req, res) {
       
       const response = await axios.post('https://api.meshy.ai', formData, {
         headers: {
-          'Authorization': 'Bearer msy_fZSOy4wBmaLudCfOOhS9KO1iNBvj1uLKH1DA',
+          'Authorization': `Bearer ${process.env.TOKEN || 'your_default_token_here'}`,
           'Content-Type': 'multipart/form-data'
         }
       });
-
       res.status(200).json(response.data);
     } catch (error) {
       res.status(500).json({ error: error.message });
