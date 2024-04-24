@@ -1,7 +1,7 @@
 // /pages/api/model.js
 import axios from 'axios';
 
-//I buitlt his API but it had some issues and for times sake I decided to skip and mock it
+//I built his API but it had some issues and for times sake I decided to skip and mock it
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
