@@ -5,6 +5,10 @@ import { IconUpload, IconPhoto, IconX } from '@tabler/icons-react';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 import { useLocalStorage } from '@mantine/hooks';
 
+/*simple dropzone set to only work with 2 images
+I created an API but decided to just mock the results */
+
+
 export function ImageDropZone(props: Partial<DropzoneProps>) {
 
   const [modelsArray, setModelsArray] = useLocalStorage<Model[]>({

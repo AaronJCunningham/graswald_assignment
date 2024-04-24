@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { Modal, Button } from '@mantine/core';
+import { Modal } from '@mantine/core';
 import ModelCanvas from './ModelCanvas';
 import { useSnapshot } from 'valtio';
 import store from '@/store';
+
+//modal to display canvas
 
 function ModelViewerModal() {
 

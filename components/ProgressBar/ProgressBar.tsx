@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Progress } from '@mantine/core';
 import store from '@/store';
-import { snapshot, useSnapshot } from 'valtio';
+import { useSnapshot } from 'valtio';
 
 function ProgressBar() {
 const snapshot = useSnapshot(store)

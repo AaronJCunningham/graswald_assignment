@@ -1,5 +1,4 @@
 import { proxy } from 'valtio';
-import * as THREE from "three"
 
 interface ImageFile extends File {}
 
@@ -21,9 +20,7 @@ interface AppState {
   processing: boolean;
   modelsArray: Model[];
   openModal: boolean;
-  refs: {
-    gl: THREE.WebGLRenderer | undefined;
-  }
+
   
 }
 
@@ -33,9 +30,7 @@ const store = proxy<AppState>({
   processing: false,
   modelsArray: [],
   openModal: false,
- refs: {
-  gl: undefined
- }
+
 });
 
 export default store;

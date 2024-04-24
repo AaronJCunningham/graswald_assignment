@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { Progress, Tabs, rem } from '@mantine/core';
+import {  Tabs, rem } from '@mantine/core';
 import { IconPhoto, Icon360, IconGridDots } from '@tabler/icons-react';
 import ImageDropZone from '../ImageDropZone/ImageDropZone';
 import ProcessedFiles from '../ProcessedFiles/ProcessedFiles';
 import ImageGrid from '../ImageGrid/ImageGrid';
-import store from '@/store';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import ModelViewerModal from '../ModalCanvas.tsx/ModelViewerModal';
+
+//I used tabs to build a simple clean interface
 
 function UITabs() {
   const iconStyle = { width: rem(12), height: rem(12) };

@@ -3,6 +3,8 @@ import { Table, Button, Group } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { IconEye, IconDownload, IconTrash } from '@tabler/icons-react';
 
+//this shows the processed files and you can delete, download, or view each file
+
 function ProcessedFiles() {
 
   const [modelsArray, setModelsArray] = useLocalStorage<Model[]>({
@@ -10,6 +12,8 @@ function ProcessedFiles() {
     defaultValue: [],
     getInitialValueInEffect: true
   });
+
+  //delete
 
   const handleDelete = (modelId: number) => {
     const tempArray = store.modelsArray.filter(model => model.id !== modelId);
@@ -28,7 +32,9 @@ function ProcessedFiles() {
             <IconEye size={16} />
           </Button>
           <Button variant="subtle" color="green" size="xs">
-            <IconDownload size={16} />
+           <a href={`/robot.glb`} download="your-model.glb" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <IconDownload size={16} />
+           </a>
           </Button>
           <Button variant="subtle" color="red" size="xs" onClick={() => handleDelete(model.id)}>
             <IconTrash size={16} />

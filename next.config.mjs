@@ -9,9 +9,7 @@ export default withBundleAnalyzer({
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: {
-    domains: ['ik.imagekit.io'],
-  }
+
 });
 
 

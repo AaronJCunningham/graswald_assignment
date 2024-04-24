@@ -1,9 +1,10 @@
-import { Canvas, useLoader, useThree } from '@react-three/fiber';
-import { Suspense, useEffect, useRef } from 'react';
-import { Button, Loader } from '@mantine/core'; 
+import { Canvas, useLoader } from '@react-three/fiber';
+import { Suspense, useRef } from 'react';
+import { Button} from '@mantine/core'; 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Environment,  OrbitControls } from '@react-three/drei';
-import store from '@/store';
+
+// this component loads a 3D model and has the ability to export it as a png
 
 function ModelCanvas() {
   const canvasRef= useRef<HTMLCanvasElement>()
@@ -15,10 +16,10 @@ function ModelCanvas() {
       return;
     }
     console.log(canvas)
-    const url = canvas.toDataURL('image/png');  // Ensure you get the PNG format
+    const url = canvas.toDataURL('image/png');  //png
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'canvas-image.png';  // Set the filename for download
+    link.download = 'canvas-image.png';  // filename
     link.style.display = 'none';  // Ensure the link is not visible
     document.body.appendChild(link);
     link.click();
@@ -47,13 +48,7 @@ function ModelCanvas() {
 
 function Model() {
 
-const {gl} = useThree()
-
-useEffect(() => {
-  store.refs.gl = gl
-}, [gl])
-
-  const {scene}= useLoader(GLTFLoader, 'https://ik.imagekit.io/fx30u3wgcqib/robot_GGKQSK4u4.glb?updatedAt=1713883148800');
+  const {scene}= useLoader(GLTFLoader, '/robot.glb');
   return <primitive object={scene} scale={1.1} position={[0, -2, 0]} />;
 }
 
