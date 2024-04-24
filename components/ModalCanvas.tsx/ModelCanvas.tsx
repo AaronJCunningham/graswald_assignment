@@ -3,13 +3,22 @@ import { Suspense, useRef } from 'react';
 import { Button} from '@mantine/core'; 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Environment,  OrbitControls } from '@react-three/drei';
+import { useLocalStorage } from '@mantine/hooks';
 
 // this component loads a 3D model and has the ability to export it as a png
 
 function ModelCanvas() {
   const canvasRef= useRef<HTMLCanvasElement>()
 
+  const [images, setImages] = useLocalStorage<string[]>({
+    key: 'canvas-images',
+    defaultValue: [],
+    getInitialValueInEffect: true,
+  });
+
   const handleDownloadImage = () => {
+
+
     const canvas = canvasRef.current
     if (!canvas) {
       console.error("Canvas not found");
@@ -24,6 +33,8 @@ function ModelCanvas() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    setImages([...images, url]);
   };
 
   return (

@@ -16,6 +16,7 @@ export interface Model {
 
 interface AppState {
   images: ImageFile[];
+  imageGalleryArray: ImageFile[]
   modelResponse: ModelResponse | null;
   processing: boolean;
   modelsArray: Model[];
@@ -26,6 +27,7 @@ interface AppState {
 
 const store = proxy<AppState>({
   images: [],
+  imageGalleryArray: [],
   modelResponse: null,
   processing: false,
   modelsArray: [],
